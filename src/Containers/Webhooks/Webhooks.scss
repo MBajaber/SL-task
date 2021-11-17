@@ -1,0 +1,81 @@
+@import '../../globalSass/variables';
+@import '../../globalSass/mixin';
+
+.webhooks {
+    .add_new_history {
+        @include flex(space-between, center);
+        margin-bottom: 20px;
+        .add_new_btn {
+            background-color: $main-color;
+            color: $white-color;
+            border: 0;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            @include flex(false, center);
+            svg {
+                margin-inline-end: 2px;
+                transform: rotate(90deg)
+            }
+        }
+        .history_btn {
+            a {
+                @include flex(false, center);
+                color: $dark-text;
+                text-decoration: none;
+                margin-inline-end: 20px;
+                span {
+                    text-decoration: underline;
+                    font-size: 14px;
+                }
+                svg {
+                    margin-inline-end: 8px;
+                }
+            }
+        }
+    }
+    .webhooks_options {
+        position: relative;
+        background-color: $bg-color;
+        padding: 20px 0px 0;
+        border: 1px solid #eee;
+        box-shadow: 0 0 #0000,0 0 #0000,0 0 #0000,0 0 #0000,0 1px 2px 0 rgba(0,0,0,0.05);
+        .webhooks_title {
+            color: $dark-text;
+            text-transform: capitalize;
+            padding: 0px 20px;
+            @include flex(false, center);
+            margin-bottom: 22px;
+            svg {
+                margin-inline-end: 10px;
+                transform: rotate(90deg)
+            }
+        }
+        .options {
+            .options_header {
+                margin-bottom: 15px;
+                padding: 0px 20px;
+                @include flex(space-between);
+                span {
+                    color: $gray-color;
+                    font-size: 13px;
+                }
+                .type_switch_column {
+                    @include flex(space-between);
+                    .event_type {
+                        display: none;
+                        @media (min-width: 470px) {
+                            display: block;
+                            width: 163px;
+                        }
+                    }
+                    .event_switch {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

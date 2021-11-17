@@ -1,0 +1,42 @@
+@import '../../globalSass/variables';
+
+.history_accordion {
+    display: none;
+    @media (min-width: 770px) {
+        display: block;
+    }
+    .MuiAccordionSummary-content {
+        justify-content: space-between;
+        padding-inline-end: 40px;
+        p {
+            font-size: 14px;
+            color: $dark-text;;
+
+        }
+    }
+    .MuiPaper-elevation1 {
+        box-shadow: none;
+    }
+    table {
+        direction: ltr;
+        th {
+            background-color: #FCFCFC;
+            color: $gray-color;
+            font-size: 13px;
+            font-family: 'Cairo', sans-serif;
+        }
+        tr {
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            border-left: 0px;
+            border-right: 0px;
+            font-family: 'Cairo', sans-serif;
+            td {
+                color: $dark-text;
+                font-family: 'Cairo', sans-serif;
+                font-size: 12px;
+                border: 0;
+            }
+        }
+    }
+}

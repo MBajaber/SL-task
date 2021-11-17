@@ -1,0 +1,10 @@
+@mixin flex($i: false, $r: false) {
+    display: flex;
+    @if($i) {
+        justify-content: $i;
+    }
+    
+    @if($r) {
+        align-items: $r;
+    }
+}

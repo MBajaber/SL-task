@@ -1,0 +1,54 @@
+@import '../../../globalSass/variables';
+@import '../../../globalSass/mixin';
+
+.history_accordion_sm {
+    @media (min-width: 770px) {
+        display: none;
+    }
+    .MuiAccordionSummary-content {
+        justify-content: space-between;
+        padding-inline-end: 40px;
+        p {
+            font-size: 14px;
+            color: $dark-text;;
+
+        }
+    }
+    .MuiPaper-elevation1 {
+        box-shadow: none;
+    }
+    table {
+        direction: ltr;
+        .second_cell {
+            border-left: 0px;
+            border-right: 0px;
+            border-bottom: 1px solid #eee;
+            border-top: 1px solid #eee;
+            font-family: 'Cairo', sans-serif;
+            background-color: #FCFCFC;
+            color: $gray-color;
+            font-size: 13px;
+            @include flex(space-between);
+            th {
+                border: 0px;
+            }
+            td {
+                color: $dark-text;
+                font-family: 'Cairo', sans-serif;
+                font-size: 12px;
+            }
+            .taple_title {
+                &.with_icon {
+                    @include flex();
+                    h4 {
+                        font-weight: normal;
+                        margin-inline-start: 40px;
+                        @media (max-width: 450px) {
+                            margin-inline-start: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

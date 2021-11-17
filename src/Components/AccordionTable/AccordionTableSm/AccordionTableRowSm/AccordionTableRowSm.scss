@@ -1,0 +1,94 @@
+@import '../../../../globalSass/variables';
+@import '../../../../globalSass/mixin';
+
+.table_body {
+    .table_body_in_sm {
+        padding: 20px 0;
+        min-height: 600px;
+        .show_list {
+            li {
+                padding: 16px 0;
+                list-style-type: none;
+                @include flex(space-between, center);
+                .text {
+                    color: $dark-text;
+                    font-size: 13px;
+                }
+                .show_list_title {
+                    color: $gray-color;
+                    font-size: 13px;
+                    font-family: 'Cairo', sans-serif;
+                }
+            }
+        }
+        .table_body_title {
+            color: $dark-text;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .table_body_summery {
+            flex-basis: 50%;
+            margin-top: 20px;
+            .MuiTimeline-root {
+                padding: 0;
+            }
+            .MuiTimelineItem-missingOppositeContent:before {
+                flex: unset;
+                padding: 0;
+            }
+            .MuiTimelineDot-defaultGrey,
+            .MuiTimelineConnector-root {
+                background-color: #ddd;
+            }
+            .MuiPaper-elevation3 {
+                box-shadow: none;
+                & > span {
+                    color: $gray-color;
+                    font-size: 14px;
+                }
+                & > p {
+                    color: $dark-text;
+                    font-size: 12px;
+                    font-weight: bold;
+                    font-family: 'Cairo', sans-serif;
+                    line-height: 20.58px;
+                }
+            }
+            .MuiTimelineContent-root {
+                padding: 0;
+                .makeStyles-paper-1 {
+                    padding: 0 10px;
+                }
+                .makeStyles-paper-19 {
+                    padding: 4px 10px;
+                }
+            }
+            .MuiTimelineItem-root {
+                min-height: 63px;
+            }
+        }
+        .table_body_code {
+            margin-top: 20px;
+            flex-basis: 50%;
+            .code_box {
+                border-radius: 3px;
+                border: 1px solid #eee;
+                background-color: #fcfcfc;
+                padding: 20px;
+                @media (min-width: 995px) {
+                    padding: 20px 90px 20px 20px;
+                }
+                .code {
+                    line-height: 20.58px;
+                    color: $dark-text;
+                    white-space: pre-wrap;
+                    span {
+                        color: $red-color;
+                    }
+                }
+            }
+        }
+    }
+}

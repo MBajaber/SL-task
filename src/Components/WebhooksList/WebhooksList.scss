@@ -1,0 +1,66 @@
+@import '../../globalSass/variables';
+@import '../../globalSass/mixin';
+
+.webhooks_list {
+    border-bottom: 1px solid #f8f8f8;
+    @include flex(space-between);
+    padding: 5px 20px;
+    .list_name_column {
+        .list_name {
+            color: $main-color;
+        }
+        .list_desc_small {
+            @include flex();
+            font-size: 12px;
+            @media (min-width: 470px) {
+                display: none;
+            }
+            @media (max-width: 300px) {
+                flex-direction: column;
+            }
+            p {
+                direction: ltr;
+                color: $dark-text;
+            }
+            span {
+                direction: rtl;
+                color: $gray-color;
+                margin-inline-end: 5px;
+            }
+        }
+    }
+    .list_desc_switch_column {
+        @include flex(space-between);
+        .list_desc {
+            color: $dark-text;
+            font-size: 14px;
+            direction: ltr;
+            // border: 1px solid red;
+            width: 145px;
+            white-space: nowrap;
+            display: none;
+            @media (min-width: 470px) {
+                display: block;
+            }
+        }
+        .list_switch {
+            @include flex(center);
+            color: $main-color;
+            @media (min-width: 470px) {
+                width: 72px;
+                margin-inline-start: 40px;
+            }
+            .MuiSwitch-colorSecondary.Mui-checked {
+                color: $main-color;
+            }
+            .MuiSwitch-track {
+                border: 1px solid #b5b5b5;
+                background-color: transparent;
+            }
+            .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+                background-color: $main-color;
+                border: 1px solid transparent;
+            }
+        }
+    }
+}
