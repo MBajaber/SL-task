@@ -2,7 +2,7 @@
 @import '../../globalSass/mixin';
 
 .webhooks_list {
-    border-bottom: 1px solid #f8f8f8;
+    border-bottom: 1px solid $gray-color-dark;
     @include flex(space-between);
     padding: 5px 20px;
     .list_name_column {

@@ -1,27 +1,34 @@
 {
-    "dates" : [1,2,3,4,5,6],
-    "StartDates": [
-        "Thu Nov 11 2021 10:12:39 GMT+0300 (Arabian Standard Time)",
-        "Fri Nov 12 2021 10:12:28 GMT+0300 (Arabian Standard Time)",
-        "Sat Nov 13 2021 10:12:16 GMT+0300 (Arabian Standard Time)",
-        "Sun Nov 14 2021 10:12:02 GMT+0300 (Arabian Standard Time)",
-        "Mon Nov 15 2021 10:11:44 GMT+0300 (Arabian Standard Time)",
-        "Mon Nov 16 2021 10:11:44 GMT+0300 (Arabian Standard Time)"
-    ],
-    "endDates": [
-        "Thu Nov 19 2021 10:12:39 GMT+0300 (Arabian Standard Time)",
-        "Fri Nov 20 2021 10:12:28 GMT+0300 (Arabian Standard Time)",
-        "Sat Nov 21 2021 10:12:16 GMT+0300 (Arabian Standard Time)",
-        "Sun Nov 22 2021 10:12:02 GMT+0300 (Arabian Standard Time)",
-        "Mon Nov 23 2021 10:11:44 GMT+0300 (Arabian Standard Time)",
-        "Mon Nov 24 2021 10:11:44 GMT+0300 (Arabian Standard Time)"
-    ],
-    "workProcess" : [
-        "مخاطرة عالية لطلبات في هذا الجدول",
-        "مخاطرة عالية للطلبات",
-        "مخاطرة عالية لطلبات في هذا الجدول",
-        "مخاطرة عالية للطلبات",
-        "مخاطرة عالية للطلبات",
-        "مخاطرة عالية للطلبات"
+    "allDates" : [
+        {
+            "startTime": "Thu Nov 11 2021 10:12:39 GMT+0300 (Arabian Standard Time)",
+            "endTime": "Thu Nov 19 2021 10:12:39 GMT+0300 (Arabian Standard Time)",
+            "workProcess": "مخاطرة عالية لطلبات في هذا الجدول"
+        },
+        {
+            "startTime": "Fri Nov 12 2021 10:12:28 GMT+0300 (Arabian Standard Time)",
+            "endTime": "Fri Nov 20 2021 10:12:28 GMT+0300 (Arabian Standard Time)",
+            "workProcess": "مخاطرة عالية للطلبات"
+        },
+        {
+            "startTime": "Sat Nov 13 2021 10:12:16 GMT+0300 (Arabian Standard Time)",
+            "endTime": "Sat Nov 21 2021 10:12:16 GMT+0300 (Arabian Standard Time)",
+            "workProcess": "مخاطرة عالية لطلبات في هذا الجدول"
+        },
+        {
+            "startTime": "Sun Nov 14 2021 10:12:02 GMT+0300 (Arabian Standard Time)",
+            "endTime": "Sun Nov 22 2021 10:12:02 GMT+0300 (Arabian Standard Time)",
+            "workProcess": "مخاطرة عالية للطلبات"
+        },
+        {
+            "startTime": "Mon Nov 15 2021 10:11:44 GMT+0300 (Arabian Standard Time)",
+            "endTime": "Mon Nov 23 2021 10:11:44 GMT+0300 (Arabian Standard Time)",
+            "workProcess": "مخاطرة عالية للطلبات"
+        },
+        {
+            "startTime": "Mon Nov 16 2021 10:11:44 GMT+0300 (Arabian Standard Time)",
+            "endTime": "Mon Nov 24 2021 10:11:44 GMT+0300 (Arabian Standard Time)",
+            "workProcess": "مخاطرة عالية للطلبات"
+        }
     ]
 }

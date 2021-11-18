@@ -16,36 +16,56 @@ function AccordionTable({ dataUsers }) {
 
     function showAccor() {
         if(myContext.startTimeContext === '' && myContext.endTimeContext === '') {
-            return dataUsers.length !== undefined && dataUsers.length > 0 && data.StartDates.map((date, index) => (
-                <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />
-            ))
+            if(myContext.workProcessState === '') {
+                return data.allDates
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            } else {
+                return data.allDates
+                .filter(e => e.workProcess === myContext.workProcessState)
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            }
 
         } else if(myContext.startTimeContext !== '' && myContext.endTimeContext !== '') {
-            return (
-                <>
-                    {data.StartDates.filter(e => new Date(myContext.startTimeContext) <= new Date(e)).map((date,index) => <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />)}
-                    {data.endDates.filter(e => new Date(myContext.endTimeContext) >= new Date(e)).map((date,index) => <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />)}
-                </>
-            )
+            if(myContext.workProcessState === '') {
+                return data.allDates
+                .filter(e => new Date(myContext.startTimeContext) <= new Date(e.startTime))
+                .filter(e => new Date(myContext.endTimeContext) >= new Date(e.endTime))
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            } else {
+                return data.allDates
+                .filter(e => new Date(myContext.startTimeContext) <= new Date(e.startTime))
+                .filter(e => new Date(myContext.endTimeContext) >= new Date(e.endTime))
+                .filter(e => e.workProcess === myContext.workProcessState)
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            }
+
         } else if(myContext.startTimeContext !== '' && myContext.endTimeContext === '') {
-            return (
-                <>
-                    {data.StartDates.filter(e => new Date(myContext.startTimeContext) <= new Date(e)).map((date,index) => <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />)}
-                    {data.endDates.filter(e => new Date(myContext.endTimeContext) >= new Date(e)).map((date,index) => <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />)}
-                </>
-            )
+            if(myContext.workProcessState === '') {
+                return data.allDates
+                .filter(e => new Date(myContext.startTimeContext) <= new Date(e.startTime))
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            } else {
+                return data.allDates
+                .filter(e => new Date(myContext.startTimeContext) <= new Date(e.startTime))
+                .filter(e => e.workProcess === myContext.workProcessState)
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            }
             
         } else if(myContext.startTimeContext === '' && myContext.endTimeContext !== '') {
-            return (
-                <>
-                    {data.StartDates.filter(e => new Date(myContext.startTimeContext) <= new Date(e)).map((date,index) => <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />)}
-                    {data.endDates.filter(e => new Date(myContext.endTimeContext) >= new Date(e)).map((date,index) => <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />)}
-                </>
-            )
+            if(myContext.workProcessState === '') {
+                return data.allDates
+                .filter(e => new Date(myContext.endTimeContext) >= new Date(e.endTime))
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+                
+            } else {
+                return data.allDates
+                .filter(e => new Date(myContext.endTimeContext) >= new Date(e.endTime))
+                .filter(e => e.workProcess === myContext.workProcessState)
+                .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
+            }
         } else {
-            return dataUsers.length !== undefined && dataUsers.length > 0 && data.StartDates.map((date, index) => (
-                <Row key={index} index={index} user={dataUsers[index]} startTime={new Date(date)} updateDate={new Date(data.endDates[index])} />
-            ))
+            return data.allDates
+            .map((date,index) => <Row key={date.startTime} index={index} user={dataUsers[index]} startTime={new Date(date.startTime)} updateDate={new Date(date.endTime)} workProcess={date.workProcess} />)
         }
     }
 
@@ -66,6 +86,7 @@ function AccordionTable({ dataUsers }) {
                     </TableHead>
                     <TableBody>
                     {showAccor()}
+                    {showAccor().length === 0 && (<tr><td></td><td></td><td></td><td className='no_item'>...لا يوجد عناصر</td><td></td><td></td><td></td></tr>)}
                     </TableBody>
                 </Table>
             </TableContainer>

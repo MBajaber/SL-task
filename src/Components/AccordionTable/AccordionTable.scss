@@ -20,14 +20,14 @@
     table {
         direction: ltr;
         th {
-            background-color: #FCFCFC;
+            background-color: $gray-color-dark;
             color: $gray-color;
             font-size: 13px;
             font-family: 'Cairo', sans-serif;
         }
         tr {
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            border-top: 1px solid $white-light-border-color;
+            border-bottom: 1px solid $white-light-border-color;
             border-left: 0px;
             border-right: 0px;
             font-family: 'Cairo', sans-serif;
@@ -36,6 +36,13 @@
                 font-family: 'Cairo', sans-serif;
                 font-size: 12px;
                 border: 0;
+                &.no_item {
+                    padding: 16px;
+                    font-size: 16px;;
+                    color: $red-color;
+                    text-align: right;
+                    font-weight: bold;
+                }
             }
         }
     }

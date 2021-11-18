@@ -17,6 +17,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Loader from '../../Components/Loader/Loader';
 import data from '../../data.json';
 import { MyContext } from '../../context';
+import SideBarSm from './SidebarSM/SidebarSM';
 
 
 
@@ -91,7 +92,7 @@ const list = (anchor) => (
         <NativeSelect value={workProcess} onChange={(event) => setWorkProcess(event.target.value)} name="work process" inputProps={{ 'aria-label': 'work process' }} >
           <option value=''>سير العمل</option>
           {
-            [...new Set([...data.workProcess])].map(e => <option key={e} value={e}>{e}</option>)
+            [...new Set([...data.allDates.map(work => work.workProcess)])].map(e => <option key={e} value={e}>{e}</option>)
           }
         </NativeSelect>
         <MdKeyboardArrowDown className='down_arrow' color='#444' />
@@ -100,9 +101,9 @@ const list = (anchor) => (
         <NativeSelect value={startTime} onChange={(event) => setStartTime(event.target.value)} name="start time" inputProps={{ 'aria-label': 'start time' }} >
           <option value=''>بداية الوقت</option>
           {
-            data.StartDates.map(startTime => (
-              <option key={startTime} value={startTime}>
-                {`${new Date(startTime).getDate()} ${myContext.arabicMonths[new Date(startTime).getMonth()]} ${new Date(startTime).getFullYear()} , ${myContext.formatAMPM(new Date(startTime))}`}
+            data.allDates.map(date => (
+              <option key={date.startTime} value={date.startTime}>
+                {`${new Date(date.startTime).getDate()} ${myContext.arabicMonths[new Date(date.startTime).getMonth()]} ${new Date(date.startTime).getFullYear()} , ${myContext.formatAMPM(new Date(date.startTime))}`}
               </option>
             ))
           }
@@ -114,10 +115,10 @@ const list = (anchor) => (
       <FormControl className='formControl'>
         <NativeSelect value={endTime} onChange={(event) => setEndTime(event.target.value)} name="end time" inputProps={{ 'aria-label': 'end time' }} >
         <option value=''>نهاية الوقت</option>
-        {
-            data.endDates.map(endTime => (
-              <option key={endTime} value={endTime}>
-                {`${new Date(endTime).getDate()} ${myContext.arabicMonths[new Date(endTime).getMonth()]} ${new Date(endTime).getFullYear()} , ${myContext.formatAMPM(new Date(endTime))}`}
+          {
+            data.allDates.map(date => (
+              <option key={date.endTime} value={date.endTime}>
+                {`${new Date(date.endTime).getDate()} ${myContext.arabicMonths[new Date(date.endTime).getMonth()]} ${new Date(date.endTime).getFullYear()} , ${myContext.formatAMPM(new Date(date.endTime))}`}
               </option>
             ))
           }
@@ -141,6 +142,24 @@ const list = (anchor) => (
   </div>
   );
 
+    const changeHandler = e => {
+      if(e.name === 'setChecked') {
+        setChecked(e.value)
+      }
+      if(e.name === 'setWorkProcess') {
+        setWorkProcess(e.value)
+        myContext.setWorkProcessState(e.value);
+      }
+      if(e.name === 'setStartTime') {
+        setStartTime(e.value)
+        myContext.setStartTimeContext(e.value);
+      }
+      if(e.name === 'setEndTime') {
+        setEndTime(e.value)
+        myContext.setEndTimeContext(e.value);
+      }
+    }
+
   return (
     <div className='history'>
       <Drawer left={'left'} open={drawer['left']} onClose={toggleDrawer(false)} className='sidebar'>
@@ -154,9 +173,7 @@ const list = (anchor) => (
       </div>
       <div className='history_boxes' style={isLoader ? {minHeight: '300px'} : {minHeight: 'auto'}}>
         <h3 className='history_title'><CgBox size={18} /><span>سجل العمليات</span></h3>
-        <div className='sidebar'>
-          {list('left')}
-        </div>
+        {!isLoader && dataUsers !== undefined && dataUsers.length > 0 && <SideBarSm changeHandler={changeHandler} workProcess={workProcess} startTime={startTime} endTime={endTime} checked={checked} />}
         {isLoader && <Loader smallSize={45} />}
         {
           !isLoader && dataUsers !== undefined && dataUsers.length > 0 && (

@@ -7,34 +7,7 @@ function ContextCompo({ children }) {
     const [englishMonths] = useState(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
     const [workProcessState, setWorkProcessState] = useState('');
     const [startTimeContext, setStartTimeContext] = useState('');
-    const [endTimeContext, setEndTimeContext] = useState('');
-
-    // function afterDates(num) {
-    //     if(typeof num === 'number') {
-    //         const someDate = new Date();
-    //         return new Date(someDate.setTime(someDate.getTime() +  (num * 24 * 60 * 60 * 1000)));
-    //     }
-    //     return '';
-    // }
-    
-    // function beforeDates(num) {
-    //     if(typeof num === 'number') {
-    //         const someDate = new Date();
-    //         return new Date(someDate.setTime(someDate.getTime() -  (num * 24 * 60 * 60 * 1000)));
-    //     } 
-    //     return '';
-    // }
-
-    function afterDates(num) {
-        const someDate = new Date();
-        return new Date(someDate.setTime(someDate.getTime() +  (num * 24 * 60 * 60 * 1000)));
-    }
-
-    function beforeDates(num) {
-        const someDate = new Date();
-        return new Date(someDate.setTime(someDate.getTime() -  (num * 24 * 60 * 60 * 1000)));
-    }
-    
+    const [endTimeContext, setEndTimeContext] = useState('');    
     
     function formatAMPM(date) {
         let hours = date.getHours();
@@ -51,8 +24,7 @@ function ContextCompo({ children }) {
         <MyContext.Provider value={{
             arabicMonths,
             englishMonths,
-            afterDates,
-            beforeDates,formatAMPM,
+            formatAMPM,
             workProcessState,
             setWorkProcessState: (val) => setWorkProcessState(val),
             startTimeContext,

@@ -1,0 +1,14 @@
+@import '../../../globalSass/variables';
+
+.all_accprdion_table {
+    @media (min-width: 770px) {
+        display: none;
+    }
+    th.no_item {
+        font-size: 16px;;
+        color: $red-color;
+        text-align: right;
+        font-weight: bold;
+        font-family: 'Cairo', sans-serif;
+    }
+}

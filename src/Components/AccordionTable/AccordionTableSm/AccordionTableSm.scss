@@ -2,9 +2,6 @@
 @import '../../../globalSass/mixin';
 
 .history_accordion_sm {
-    @media (min-width: 770px) {
-        display: none;
-    }
     .MuiAccordionSummary-content {
         justify-content: space-between;
         padding-inline-end: 40px;
@@ -22,8 +19,8 @@
         .second_cell {
             border-left: 0px;
             border-right: 0px;
-            border-bottom: 1px solid #eee;
-            border-top: 1px solid #eee;
+            border-bottom: 1px solid $white-light-border-color;
+            border-top: 1px solid $white-light-border-color;
             font-family: 'Cairo', sans-serif;
             background-color: #FCFCFC;
             color: $gray-color;
